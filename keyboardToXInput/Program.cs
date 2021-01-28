@@ -17,8 +17,6 @@ namespace keyboardToXInput
         [STAThread]
         static void Main()
         {
-            ViGEmClient test = new ViGEmClient();
-            IXbox360Controller testBox = test.CreateXbox360Controller();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new keyboardToXInput());

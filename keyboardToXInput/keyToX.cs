@@ -299,7 +299,7 @@ namespace keyboardToXInput
             }
             controller.SetAxisValue(axisNum, (short)setVal);
             currentAxisValue[axisNum] = (short)setVal;
-            valueLabel.Text = "" + currentAxisValue[axisNum];
+            valueLabel.Text = $"{ currentAxisValue[axisNum]}";
         }
 
         private void setTrigger(int triggerNum)
