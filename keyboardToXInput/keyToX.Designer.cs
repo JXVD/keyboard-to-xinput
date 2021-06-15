@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(keyboardToXInput));
             this.xButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -95,7 +94,15 @@
             this.centerButton = new System.Windows.Forms.Button();
             this.topCheck = new System.Windows.Forms.CheckBox();
             this.hotkeyCheck = new System.Windows.Forms.CheckBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.tabController = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.loadFileButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Input = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Angle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lXUpDown)).BeginInit();
@@ -106,6 +113,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.rXUpDown)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.tabController.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // xButton
@@ -128,7 +139,7 @@
             this.panel1.Controls.Add(this.aButton);
             this.panel1.Controls.Add(this.xButtonLabel);
             this.panel1.Controls.Add(this.xButton);
-            this.panel1.Location = new System.Drawing.Point(551, 233);
+            this.panel1.Location = new System.Drawing.Point(508, 225);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 134);
             this.panel1.TabIndex = 1;
@@ -210,7 +221,7 @@
             this.panel2.Controls.Add(this.dDownButton);
             this.panel2.Controls.Add(this.dLeftlabel);
             this.panel2.Controls.Add(this.dLeftButton);
-            this.panel2.Location = new System.Drawing.Point(25, 233);
+            this.panel2.Location = new System.Drawing.Point(6, 225);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(237, 134);
             this.panel2.TabIndex = 8;
@@ -295,11 +306,6 @@
             // lXUpDown
             // 
             this.lXUpDown.DecimalPlaces = 1;
-            this.lXUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
             this.lXUpDown.Location = new System.Drawing.Point(0, 45);
             this.lXUpDown.Name = "lXUpDown";
             this.lXUpDown.Size = new System.Drawing.Size(120, 20);
@@ -327,7 +333,7 @@
             this.panel3.Controls.Add(this.lYUpDown);
             this.panel3.Controls.Add(this.lXAnalogLabel);
             this.panel3.Controls.Add(this.lXUpDown);
-            this.panel3.Location = new System.Drawing.Point(41, 27);
+            this.panel3.Location = new System.Drawing.Point(6, 19);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(209, 200);
             this.panel3.TabIndex = 9;
@@ -375,7 +381,7 @@
             // lYValue
             // 
             this.lYValue.AutoSize = true;
-            this.lYValue.Location = new System.Drawing.Point(85, 168);
+            this.lYValue.Location = new System.Drawing.Point(90, 170);
             this.lYValue.Name = "lYValue";
             this.lYValue.Size = new System.Drawing.Size(14, 15);
             this.lYValue.TabIndex = 13;
@@ -384,7 +390,7 @@
             // lXValue
             // 
             this.lXValue.AutoSize = true;
-            this.lXValue.Location = new System.Drawing.Point(85, 155);
+            this.lXValue.Location = new System.Drawing.Point(90, 155);
             this.lXValue.Name = "lXValue";
             this.lXValue.Size = new System.Drawing.Size(14, 15);
             this.lXValue.TabIndex = 12;
@@ -393,7 +399,7 @@
             // lYValueLabel
             // 
             this.lYValueLabel.AutoSize = true;
-            this.lYValueLabel.Location = new System.Drawing.Point(2, 170);
+            this.lYValueLabel.Location = new System.Drawing.Point(1, 170);
             this.lYValueLabel.Name = "lYValueLabel";
             this.lYValueLabel.Size = new System.Drawing.Size(97, 15);
             this.lYValueLabel.TabIndex = 11;
@@ -402,7 +408,7 @@
             // lXValueLabel
             // 
             this.lXValueLabel.AutoSize = true;
-            this.lXValueLabel.Location = new System.Drawing.Point(2, 155);
+            this.lXValueLabel.Location = new System.Drawing.Point(1, 155);
             this.lXValueLabel.Name = "lXValueLabel";
             this.lXValueLabel.Size = new System.Drawing.Size(98, 15);
             this.lXValueLabel.TabIndex = 10;
@@ -412,7 +418,7 @@
             // 
             this.leftAnalogZero.Location = new System.Drawing.Point(0, 1);
             this.leftAnalogZero.Name = "leftAnalogZero";
-            this.leftAnalogZero.Size = new System.Drawing.Size(75, 23);
+            this.leftAnalogZero.Size = new System.Drawing.Size(92, 23);
             this.leftAnalogZero.TabIndex = 9;
             this.leftAnalogZero.Text = "Set To Zero";
             this.leftAnalogZero.UseVisualStyleBackColor = true;
@@ -449,11 +455,6 @@
             // lYUpDown
             // 
             this.lYUpDown.DecimalPlaces = 1;
-            this.lYUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
             this.lYUpDown.Location = new System.Drawing.Point(0, 84);
             this.lYUpDown.Name = "lYUpDown";
             this.lYUpDown.Size = new System.Drawing.Size(120, 20);
@@ -490,7 +491,7 @@
             this.panel4.Controls.Add(this.rYUpDown);
             this.panel4.Controls.Add(this.rXAnalogLabel);
             this.panel4.Controls.Add(this.rXUpDown);
-            this.panel4.Location = new System.Drawing.Point(551, 27);
+            this.panel4.Location = new System.Drawing.Point(516, 19);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(229, 200);
             this.panel4.TabIndex = 10;
@@ -508,7 +509,7 @@
             // rYValue
             // 
             this.rYValue.AutoSize = true;
-            this.rYValue.Location = new System.Drawing.Point(86, 168);
+            this.rYValue.Location = new System.Drawing.Point(97, 170);
             this.rYValue.Name = "rYValue";
             this.rYValue.Size = new System.Drawing.Size(14, 15);
             this.rYValue.TabIndex = 17;
@@ -518,7 +519,7 @@
             // 
             this.rightAnalogZero.Location = new System.Drawing.Point(0, 3);
             this.rightAnalogZero.Name = "rightAnalogZero";
-            this.rightAnalogZero.Size = new System.Drawing.Size(75, 23);
+            this.rightAnalogZero.Size = new System.Drawing.Size(92, 23);
             this.rightAnalogZero.TabIndex = 10;
             this.rightAnalogZero.Text = "Set To Zero";
             this.rightAnalogZero.UseVisualStyleBackColor = true;
@@ -537,7 +538,7 @@
             // rXValue
             // 
             this.rXValue.AutoSize = true;
-            this.rXValue.Location = new System.Drawing.Point(86, 155);
+            this.rXValue.Location = new System.Drawing.Point(97, 155);
             this.rXValue.Name = "rXValue";
             this.rXValue.Size = new System.Drawing.Size(14, 15);
             this.rXValue.TabIndex = 16;
@@ -664,9 +665,9 @@
             this.panel5.Controls.Add(this.lBumperLabel);
             this.panel5.Controls.Add(this.rightBumperButton);
             this.panel5.Controls.Add(this.leftBumperButton);
-            this.panel5.Location = new System.Drawing.Point(262, 27);
+            this.panel5.Location = new System.Drawing.Point(227, 19);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(249, 104);
+            this.panel5.Size = new System.Drawing.Size(263, 104);
             this.panel5.TabIndex = 11;
             // 
             // rtButton
@@ -710,7 +711,7 @@
             // rightBumperLabel
             // 
             this.rightBumperLabel.AutoSize = true;
-            this.rightBumperLabel.Location = new System.Drawing.Point(178, 3);
+            this.rightBumperLabel.Location = new System.Drawing.Point(171, 3);
             this.rightBumperLabel.Name = "rightBumperLabel";
             this.rightBumperLabel.Size = new System.Drawing.Size(83, 15);
             this.rightBumperLabel.TabIndex = 3;
@@ -719,7 +720,7 @@
             // lBumperLabel
             // 
             this.lBumperLabel.AutoSize = true;
-            this.lBumperLabel.Location = new System.Drawing.Point(3, 5);
+            this.lBumperLabel.Location = new System.Drawing.Point(1, 3);
             this.lBumperLabel.Name = "lBumperLabel";
             this.lBumperLabel.Size = new System.Drawing.Size(74, 15);
             this.lBumperLabel.TabIndex = 2;
@@ -750,7 +751,7 @@
             this.panel6.Controls.Add(this.startButton);
             this.panel6.Controls.Add(this.selectButton);
             this.panel6.Controls.Add(this.centerButton);
-            this.panel6.Location = new System.Drawing.Point(278, 138);
+            this.panel6.Location = new System.Drawing.Point(243, 130);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(225, 57);
             this.panel6.TabIndex = 12;
@@ -788,7 +789,7 @@
             // topCheck
             // 
             this.topCheck.AutoSize = true;
-            this.topCheck.Location = new System.Drawing.Point(41, 2);
+            this.topCheck.Location = new System.Drawing.Point(10, 3);
             this.topCheck.Name = "topCheck";
             this.topCheck.Size = new System.Drawing.Size(104, 19);
             this.topCheck.TabIndex = 13;
@@ -799,7 +800,7 @@
             // hotkeyCheck
             // 
             this.hotkeyCheck.AutoSize = true;
-            this.hotkeyCheck.Location = new System.Drawing.Point(170, 2);
+            this.hotkeyCheck.Location = new System.Drawing.Point(131, 3);
             this.hotkeyCheck.Name = "hotkeyCheck";
             this.hotkeyCheck.Size = new System.Drawing.Size(94, 19);
             this.hotkeyCheck.TabIndex = 14;
@@ -807,26 +808,102 @@
             this.hotkeyCheck.UseVisualStyleBackColor = true;
             this.hotkeyCheck.CheckedChanged += new System.EventHandler(this.HotkeyCheck_CheckedChanged);
             // 
-            // notifyIcon1
+            // tabController
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.tabController.Controls.Add(this.tabPage1);
+            this.tabController.Controls.Add(this.tabPage2);
+            this.tabController.Location = new System.Drawing.Point(10, 28);
+            this.tabController.Name = "tabController";
+            this.tabController.SelectedIndex = 0;
+            this.tabController.Size = new System.Drawing.Size(766, 436);
+            this.tabController.TabIndex = 16;
             // 
-            // keyToXInput
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel3);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.panel6);
+            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Controls.Add(this.panel5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(758, 410);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.loadFileButton);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(758, 410);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // loadFileButton
+            // 
+            this.loadFileButton.ForeColor = System.Drawing.Color.Black;
+            this.loadFileButton.Location = new System.Drawing.Point(0, 6);
+            this.loadFileButton.Name = "loadFileButton";
+            this.loadFileButton.Size = new System.Drawing.Size(133, 23);
+            this.loadFileButton.TabIndex = 1;
+            this.loadFileButton.Text = "Load Input File";
+            this.loadFileButton.UseVisualStyleBackColor = true;
+            this.loadFileButton.Click += new System.EventHandler(this.loadFileButton_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Input,
+            this.Angle,
+            this.Time});
+            this.dataGridView1.Location = new System.Drawing.Point(415, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(340, 395);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Input
+            // 
+            this.Input.HeaderText = "Input";
+            this.Input.Name = "Input";
+            this.Input.ToolTipText = "What Input is being changed";
+            // 
+            // Angle
+            // 
+            this.Angle.HeaderText = "Angle";
+            this.Angle.Name = "Angle";
+            this.Angle.ToolTipText = "(Axis only)";
+            // 
+            // Time
+            // 
+            this.Time.HeaderText = "Time";
+            this.Time.Name = "Time";
+            this.Time.ToolTipText = "When the input happens";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.InitialDirectory = "c:\\\\";
+            this.openFileDialog1.RestoreDirectory = true;
+            // 
+            // keyboardToXInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 355);
+            this.ClientSize = new System.Drawing.Size(788, 476);
+            this.Controls.Add(this.tabController);
             this.Controls.Add(this.hotkeyCheck);
             this.Controls.Add(this.topCheck);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "keyToXInput";
+            this.Name = "keyboardToXInput";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Keyboard to X-Input";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -845,6 +922,10 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.tabController.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -917,7 +998,15 @@
         private System.Windows.Forms.Button rYUpButton;
         private System.Windows.Forms.Button rXRightButton;
         private System.Windows.Forms.Button rXLeftButton;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.TabControl tabController;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Input;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Angle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.Button loadFileButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

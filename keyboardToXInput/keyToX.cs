@@ -37,10 +37,13 @@ namespace keyboardToXInput
         private bool[] keyPressBools = new bool[16];
         private bool[] triggerBools = new bool[2];
 
-
         //maximum analog value is the max size of a short
         private decimal maximumAnalogValue = 32767;
         public decimal[] currentAxisValue = new decimal[4];
+
+
+
+        //File loading variables
         #endregion
 
         #region initilization functions
@@ -411,5 +414,10 @@ namespace keyboardToXInput
 
         #endregion
 
+        private void loadFileButton_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+
+        }
     }
 }
